@@ -3,6 +3,7 @@
 ## Components & Pages
 <strong>Pages:</strong>
 1. Home
+2. Update
 
 <strong>Components:</strong>
 1. Navigation Menu
@@ -14,3 +15,12 @@
 
 
 ## Component Tree
+/src<br>
+-/components<br>
+--/Nav.js, Form.js, List.js, ListItem.js
+
+-/pages<br>
+--/Home.js
+
+## Dependecies
+react | react-Dom | react-router-dom | styled-components
