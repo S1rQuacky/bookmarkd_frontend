@@ -7,7 +7,8 @@
 
 <strong>Components:</strong>
 1. Navigation Menu
-2. Form
+2. CreateForm
+2. UpdateForm
 3. List
 4. List Item
 
