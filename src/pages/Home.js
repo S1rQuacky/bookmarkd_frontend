@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {Link} from "react-router-dom";
 import CreateForm from "../components/CreateForm";
-import Nav from "../components/Nav";
+
 
 function Home (props) { 
     // state to hold formData
