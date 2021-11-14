@@ -1,64 +1,53 @@
-import {useEffect, useState} from "react"
-import {Link} from "react-router-dom"
+import {useState} from "react";
+import {Link} from "react-router-dom";
+import CreateForm from "../components/CreateForm";
+import Nav from "../components/Nav";
 
-function Home (props) {
+function Home (props) { 
+    // state to hold formData
 
-  const [newForm, setNewForm] = useState({
-    name: "",
-    url: "",
-    
-  })
-
-  const handleChange = event => {
-    setNewForm({ ...newForm, [event.target.name]: event.target.value })
-  }
-
-  // handle submit function for form
-  const handleSubmit = event => {
-    event.preventDefault()
-    props.createList(newForm)
-    setNewForm({
-        name: "",
-        url: "",
+    const [newForm, setNewForm] = useState({
+      title: "",
+      url: "",
     })
+  
+    // handleChange function for form
+    const handleChange = event => {
+      setNewForm({ ...newForm, [event.target.name]: event.target.value })
+    }
+  
+    // handle submit function for form
+    const handleSubmit = event => {
+      event.preventDefault()
+      props.createBookmark(newForm)
+      setNewForm({
+        title: "",
+        url: "",
+      })
+    }
+  
+    // loaded function
+    const loaded = () => {
+      return props.bookmark.map(item => (
+        <div key={item._id} className="item">
+          <Link to={item.url}>
+            <h1>{item.title}</h1>
+          </Link>
+        </div>
+      ))
+    }
+  
+    const loading = () => {
+      return <h1>Loading...</h1>
+    }
+    return (
+      <section>
+        <CreateForm handleSubmit={handleSubmit} handleChange={handleChange} newForm={newForm}/>
+        {props.bookmark ? loaded() : loading()}
+      </section>
+    )
   }
+  
 
-  // loaded function
-  const loaded = () => {
-    return props.list.map(li => (
-      <div key={li._id} className="li">
-        <Link to={li.url}>
-          <h1>{li.name}</h1>
-        </Link>
-      </div>
-    ))
-  }
 
-  const loading = () => {
-    return <h1>Loading...</h1>
-  }
-  return (
-    <section>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={newForm.name}
-          name="name"
-          placeholder="web"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          value={newForm.url}
-          name="url"
-          placeholder="web URL"
-          onChange={handleChange}
-        />
-       
-        <input type="submit" value="Create Bookmark" />
-      </form>
-      {props.list ? loaded() : loading()}
-    </section>
-  )
-}
 export default Home
