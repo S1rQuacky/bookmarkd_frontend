@@ -11,7 +11,7 @@ align-items: center;
 `
 export const Main = styled.main`
 background: lightgrey;
-pagging: 20px;
+padding: 20px;
 `
 
 

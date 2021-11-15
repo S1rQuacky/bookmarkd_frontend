@@ -1,13 +1,14 @@
 import './App.css';
 import Nav from './components/Nav';
 import Home from './pages/Home';
+import List from './components/List';
 
 
 function App() {
   return (
     <main>
       <Nav/>
-      <Home/>
+      <List/>
     </main>
   );
 }

@@ -31,9 +31,9 @@ function Home (props) {
     const loaded = () => {
       return props.bookmark.map(item => (
         <div key={item._id} className="item">
-          <Link to={item.url}>
+          <a href={item.url} target="_blank">
             <h1>{item.title}</h1>
-          </Link>
+          </a>
         </div>
       ))
     }
@@ -41,6 +41,7 @@ function Home (props) {
     const loading = () => {
       return <h1>Loading...</h1>
     }
+
     return (
       <Main>
         <CreateForm handleSubmit={handleSubmit} handleChange={handleChange} newForm={newForm}/>
