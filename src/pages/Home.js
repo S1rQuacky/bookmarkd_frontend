@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {Link} from "react-router-dom";
 import CreateForm from "../components/CreateForm";
+import {Main} from "../styles";
 
 
 function Home (props) { 
@@ -41,10 +42,10 @@ function Home (props) {
       return <h1>Loading...</h1>
     }
     return (
-      <section>
+      <Main>
         <CreateForm handleSubmit={handleSubmit} handleChange={handleChange} newForm={newForm}/>
         {props.bookmark ? loaded() : loading()}
-      </section>
+      </Main>
     )
   }
   

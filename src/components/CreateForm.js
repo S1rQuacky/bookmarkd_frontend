@@ -1,6 +1,9 @@
+
+
 const CreateForm =(props) => {
     return (
         <section>
+            <h1>Add a new Bookmark</h1>
             <form onSubmit={props.handleSubmit}>
                 <input
                     type="text"
@@ -17,7 +20,7 @@ const CreateForm =(props) => {
                     onChange={props.handleChange}
                 />
                 
-                <input type="submit" value="Create Bookmark" />
+                <input type="submit" value="Add!!" />
             </form>
         
       </section>
