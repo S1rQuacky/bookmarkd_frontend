@@ -4,6 +4,7 @@ import UpdateForm from "../components/UpdateForm"
 import {useState} from "react";
 
 function Update(props) {
+    console.log(props)
     const id = props.match.params.id
     const bookmark = props.bookmark
     const item = bookmark.find(p => p._id === id)

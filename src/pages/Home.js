@@ -34,6 +34,7 @@ function Home (props) {
           <a href={item.url} target="_blank">
             <h1>{item.title}</h1>
           </a>
+          <a href={`/bookmarks/${item._id}`}>Update</a>
         </div>
       ))
     }
