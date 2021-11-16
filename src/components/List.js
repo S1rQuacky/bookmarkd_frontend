@@ -52,27 +52,34 @@ function List(props){
       }
 
     useEffect(() => getBookmark(), []);
-    console.log(bookmark)
+    
 
-    return (
-        <main>
-            <Switch>
-                <Route exact path="/">
-                    <Home bookmark={bookmark} createBookmark={createBookmark}/>
-                </Route>
-                <Route 
-                    path="/bookmarks/:id" 
-                    render={(rp)=>(
-                        <Update 
-                        {...rp}
-                        bookmark={bookmark}
-                        updateBookmark={updateBookmark}
-                        deleteBookmark={deleteBookmark}
-                        />)} 
-                />
-            </Switch>
-        </main>
-    )
+    const loaded = () => {
+
+        return (
+            <main>
+                <Switch>
+                    <Route exact path="/">
+                        <Home bookmark={bookmark} createBookmark={createBookmark}/>
+                    </Route>
+                    <Route 
+                        path="/bookmarks/:id" 
+                        render={(rp)=>(
+                            <Update 
+                            {...rp}
+                            bookmark={bookmark}
+                            updateBookmark={updateBookmark}
+                            deleteBookmark={deleteBookmark}
+                            />)} 
+                    />
+                </Switch>
+            </main>
+        )
+    }
+    const loading = () => {
+        return <h1>Loading ...</h1>
+    }
+    return bookmark ? loaded() : loading()
   } 
   
   export default List

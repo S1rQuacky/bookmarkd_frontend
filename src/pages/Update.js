@@ -6,11 +6,10 @@ import {useState} from "react";
 function Update(props) {
     const id = props.match.params.id
     const bookmark = props.bookmark
-    console.log(bookmark)
-    let item
+    const item = bookmark.find(p => p._id === id)
 
     // state for form
-    const [editForm, setEditForm] = useState({title: "", url: ""})
+    const [editForm, setEditForm] = useState(item)
   
     // handleChange function for form
     const handleChange = event => {
@@ -30,24 +29,13 @@ function Update(props) {
       props.history.push("/")
     }
 
-    const loaded = () => {
-      item = bookmark.find(p => p._id === id)
-      console.log(item)
+    
+      
       return(
         <>
           <ListItem item={item}  removeBookmark={removeBookmark}/>
           <UpdateForm  editForm={editForm}  handleSubmit={handleSubmit} handleChange={handleChange}/>
         </>
-    )}
-
-    const loading = () => {
-      return <h1>Loading..</h1>
-    }
-  
-    return (
-      <div>
-        {bookmark ? loaded() : loading()}
-      </div>
     )
     
   }
