@@ -1,5 +1,7 @@
 // THIS WILL BE USED FOR UPDATING EXISTING BOOKMARKS 
 function UpdateForm (props){
+
+    console.log(props)
     return(
         <div className="form">
             <form onSubmit={props.handleSubmit}>

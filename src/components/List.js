@@ -7,18 +7,18 @@ import Update from "../pages/Update";
 
 
 function List(props){
-    const[bookmark, setBookmark] = useState (null);
+    const [bookmark, setBookmark] = useState (null);
+
     const URL = "https://mnr-bookmarkd.herokuapp.com/bookmarks/";
 
-    const getBookmark = async() => {
+    const getBookmark = async () => {
         const response = await fetch(URL);
         const data = await response.json();
         console.log(data)
         setBookmark(data);
-        console.log(bookmark)
     };
 
-    const createBookmark = async(item) => {
+    const createBookmark = async (item) => {
         await fetch(URL, {
             method: "post",
             headers: {"Content-Type": "application/json",},
@@ -36,19 +36,23 @@ function List(props){
           },
           body: JSON.stringify(item),
         })
+
         // update list of Bookmarks
         getBookmark()
       }
+
       const deleteBookmark = async id => {
         // make delete request to delete bookmark
         await fetch(URL + id, {
           method: "delete",
         })
+
         // update list of Bookmark
         getBookmark()
       }
 
     useEffect(() => getBookmark(), []);
+    console.log(bookmark)
 
     return (
         <main>
@@ -59,10 +63,11 @@ function List(props){
                 <Route 
                     path="/bookmarks/:id" 
                     render={(rp)=>(
-                        <Update bookmark={bookmark}
+                        <Update 
+                        {...rp}
+                        bookmark={bookmark}
                         updateBookmark={updateBookmark}
                         deleteBookmark={deleteBookmark}
-                        {...rp}
                         />)} 
                 />
             </Switch>

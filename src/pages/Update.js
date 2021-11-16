@@ -4,13 +4,13 @@ import UpdateForm from "../components/UpdateForm"
 import {useState} from "react";
 
 function Update(props) {
-    console.log(props)
     const id = props.match.params.id
     const bookmark = props.bookmark
-    const item = bookmark.find(p => p._id === id)
-  
+    console.log(bookmark)
+    let item
+
     // state for form
-    const [editForm, setEditForm] = useState(item)
+    const [editForm, setEditForm] = useState({title: "", url: ""})
   
     // handleChange function for form
     const handleChange = event => {
@@ -20,21 +20,36 @@ function Update(props) {
     // handlesubmit for form
     const handleSubmit = event => {
       event.preventDefault()
-      props.updatePeople(editForm, item._id)
+      props.updateBookmark(editForm, item._id)
       // redirect people back to index
       props.history.push("/")
     }
+
     const removeBookmark = () => {
       props.deleteBookmark(item._id)
       props.history.push("/")
     }
+
+    const loaded = () => {
+      item = bookmark.find(p => p._id === id)
+      console.log(item)
+      return(
+        <>
+          <ListItem item={item}  removeBookmark={removeBookmark}/>
+          <UpdateForm  editForm={editForm}  handleSubmit={handleSubmit} handleChange={handleChange}/>
+        </>
+    )}
+
+    const loading = () => {
+      return <h1>Loading..</h1>
+    }
   
     return (
-        <>
-            <ListItem item={item}  removeBookmark={removeBookmark}/>
-            <UpdateForm  editForm={editForm}  handleSubmit={handleSubmit} handleChange={handleChange}/>   
-       </>
+      <div>
+        {bookmark ? loaded() : loading()}
+      </div>
     )
+    
   }
 
 export default Update
