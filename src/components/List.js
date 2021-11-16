@@ -14,7 +14,6 @@ function List(props){
     const getBookmark = async () => {
         const response = await fetch(URL);
         const data = await response.json();
-        console.log(data)
         setBookmark(data);
     };
 
