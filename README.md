@@ -24,4 +24,4 @@
 --/Home.js
 
 ## Dependecies
-react | react-Dom | react-router-dom | styled-components
+react | react-Dom | react-router-dom | styled-components | sass

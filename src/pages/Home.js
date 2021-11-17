@@ -30,10 +30,10 @@ function Home (props) {
     const loaded = () => {
       return props.bookmark.map(item => (
         <div key={item._id} className="item">
-          <a href={item.url} target="_blank">
+          <a href={item.url} target="_blank" className="link">
             <h1>{item.title}</h1>
           </a>
-          <a href={`/bookmarks/${item._id}`}>Update</a>
+          <a href={`/bookmarks/${item._id}`} className="update">Update</a>
         </div>
       ))
     }

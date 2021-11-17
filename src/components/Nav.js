@@ -4,11 +4,11 @@ import {Title} from "../styles"
 
 function Nav(props) {
     return (
-        <Title className="nav">
+        <div className="nav">
           <Link to="/">
             <h1>Bookmarks</h1>
           </Link>
-        </Title>
+        </div>
     ) 
  
 }

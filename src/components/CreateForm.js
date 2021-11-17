@@ -2,25 +2,25 @@
 
 const CreateForm =(props) => {
     return (
-        <section>
+        <section className="createform">
             <h1>Add a new Bookmark</h1>
             <form onSubmit={props.handleSubmit}>
                 <input
                     type="text"
                     value={props.newForm.title}
                     name="title"
-                    placeholder="Website"
+                    placeholder="Website Name"
                     onChange={props.handleChange}
                 />
                 <input
                     type="text"
                     value={props.newForm.url}
                     name="url"
-                    placeholder="https://"
+                    placeholder="Website URL"
                     onChange={props.handleChange}
                 />
                 
-                <input type="submit" value="Add!!" />
+                <input type="submit" value="Add Bookmark" />
             </form>
         
       </section>
