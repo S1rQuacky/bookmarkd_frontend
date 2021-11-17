@@ -2,7 +2,7 @@
 
 function ListItem(props) {
     return(
-        <div className="item">
+        <div className="listitem">
             <h1>{props.item.title}</h1>
             <h2>{props.item.url}</h2>
             <button id="delete" onClick={props.removeBookmark}>

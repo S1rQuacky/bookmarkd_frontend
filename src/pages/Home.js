@@ -8,7 +8,7 @@ function Home (props) {
 
     const [newForm, setNewForm] = useState({
       title: "",
-      url: "",
+      url: "https://",
     })
   
     // handleChange function for form
@@ -28,15 +28,18 @@ function Home (props) {
   
     // loaded function
     const loaded = () => {
-      return props.bookmark.map(item => (
+         return (
+         <div className="container"> {props.bookmark.map(item => (
         <div key={item._id} className="item">
           <a href={item.url} target="_blank" className="link">
             <h1>{item.title}</h1>
           </a>
           <a href={`/bookmarks/${item._id}`} className="update">Update</a>
         </div>
-      ))
-    }
+        
+         ))}
+      </div>
+         )}
   
     const loading = () => {
       return <h1>Loading...</h1>

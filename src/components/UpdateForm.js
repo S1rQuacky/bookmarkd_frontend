@@ -16,7 +16,7 @@ function UpdateForm (props){
                 type="text"
                 value={props.editForm.url}
                 name="url"
-                placeholder="https://"
+                placeholder="Update URL"
                 onChange={props.handleChange}
             />
             
