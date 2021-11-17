@@ -1,6 +1,7 @@
 import {useState} from "react";
 import CreateForm from "../components/CreateForm";
 import {Main} from "../styles";
+import {Link} from "react-router-dom"
 
 
 function Home (props) { 
@@ -34,7 +35,7 @@ function Home (props) {
           <a href={item.url} target="_blank" className="link">
             <h1>{item.title}</h1>
           </a>
-          <a href={`/bookmarks/${item._id}`} className="update">Update</a>
+          <Link href={`/bookmarks/${item._id}`} className="update">Update</Link>
         </div>
         
          ))}
